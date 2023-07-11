@@ -8,7 +8,8 @@ const Todo = (props)=>{ //props is a parameter(property)
 
     const handleTaskChange = (event)=>{ //whenever user gives input in text this function will invoke 
         event.preventDefault();//preventing the default functionality of event 
-        const {name,value} = event.target; //destructring 
+        // const { name:dname,value:dval} = event.target; //destructring 
+        const {name,value} = event.target; 
         setTodo((prevState)=>({...prevState,[name]:value}))//append present char with previous value d i di,
         //  di n din
     }
@@ -19,9 +20,7 @@ const Todo = (props)=>{ //props is a parameter(property)
         setTodo({task:''}) //setting the usestate to empty again 
     }
 
-    const style={
-        'background-color':'red'
-    }
+    
 
     return(
         <div className="card p-2" id="">
@@ -29,7 +28,7 @@ const Todo = (props)=>{ //props is a parameter(property)
             <form onSubmit={add}>
                 <div className="form-group">
                     <label>To do</label>
-                    <input type="text" className="form-control task"  name="task" placeholder="Enter Task" onChange={handleTaskChange} />
+                    <input type="text" className="form-control"  name="task" placeholder="Enter Task" onChange={handleTaskChange} value={todo.task}/>
                 </div>
                 <div className="m-2">
                     <button type="submit" className="btn btn-primary">Submit</button>
